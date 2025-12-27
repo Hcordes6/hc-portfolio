@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --animate-aurora: aurora 500s linear infinite;
+  --animate-aurora: aurora 240s linear infinite;
   @keyframes aurora {
     from {
       background-position: 50% 50%, 50% 50%;
