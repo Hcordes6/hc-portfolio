@@ -31,7 +31,7 @@ function DockItem({
   return (
     <div
       onClick={onClick}
-      className={`relative inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[#060010] border-neutral-700 border-2 shadow-md cursor-pointer transition-colors hover:bg-[#0a0015] ${className}`}
+      className={`relative inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[#060010] border-neutral-700 border-2 shadow-md cursor-pointer transition-all duration-300 ease-out hover:scale-110 hover:bg-[#0a0015] ${className}`}
       tabIndex={0}
       role="button"
     >
@@ -72,6 +72,7 @@ export default function Dock({
           <DockItem
             key={index}
             onClick={item.onClick}
+            
             className={item.className}
             showLabels={showLabels}
           >
