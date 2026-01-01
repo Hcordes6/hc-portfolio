@@ -4,6 +4,7 @@ import { AuroraBackground } from "@/components/ui/shadcn-io/aurora-background";
 import RotatingText from "@/components/animations/rotatingText";
 import Dock from "@/components/animations/dock";
 import { Linkedin, Github, Mail } from "lucide-react";
+import SpotlightCard from "@/components/animations/SpotlightCard";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('About');
@@ -33,6 +34,7 @@ export default function Home() {
 
   const renderContent = () => {
     switch (activeSection) {
+      // About section edits here -----------------
       case 'About':
         return (
           <div className="text-center max-w-2xl mx-auto px-4">
@@ -40,8 +42,12 @@ export default function Home() {
             <p className="text-lg text-white/80">
               This is the about section. Add your information here.
             </p>
+            <SpotlightCard>
+              <img src="/images/Brookings_Hall.jpg" alt="Picture of Brookings Hall, Washington University" className="w-full h-full object-cover" />
+            </SpotlightCard>
           </div>
         );
+      // Employment section edits here -----------------
       case 'Employment':
         return (
           <div className="text-center max-w-2xl mx-auto px-4">
@@ -51,6 +57,7 @@ export default function Home() {
             </p>
           </div>
         );
+      // Projects section edits here -----------------
       case 'Projects':
         return (
           <div className="text-center max-w-2xl mx-auto px-4">
@@ -60,6 +67,7 @@ export default function Home() {
             </p>
           </div>
         );
+      // Contact section edits here -----------------
       case 'Contact':
         return (
           <div className="text-center max-w-2xl mx-auto px-4">
