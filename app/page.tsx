@@ -5,6 +5,7 @@ import RotatingText from "@/components/animations/rotatingText";
 import Dock from "@/components/animations/dock";
 import { Linkedin, Github, Mail } from "lucide-react";
 import SpotlightCard from "@/components/animations/SpotlightCard";
+import About from "./pages/about";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('About');
@@ -37,25 +38,7 @@ export default function Home() {
       // About section edits here -----------------
       case 'About':
         return (
-          <div className="text-center max-w-2xl mx-auto px-4 gap-4">
-            <h1 className="text-4xl font-bold text-white mb-4">About</h1>
-            <p className="text-lg text-white/80">
-              I'm a current Software Developer at DevSTAC, where I work on a variety of projects for clients. I am a Student at Washington University in St. Louis, studying Computer Science and Human-Computer Interaction.
-            </p>
-            <p className="text-lg text-white/80">
-              I was born in Minnesota, living in St. Paul for most of my life. I began my studies at WashU in 2024. Today, I am based in both St. Louis and the Twin Cities.
-            </p>
-            <p className="text-lg text-white/80">
-              The projects I work on include web/mobile apps, AI systems, and Databases. My current stack includes React/Next.js, Tailwind CSS, TypeScript, and Convex. I love learning new technologies. My toolsets are always adapting to the needs of the project.
-            </p>
-            <p className="text-lg text-white/80">
-              I enjoy rock climbing, tennis, and music.
-            </p>
-
-            <SpotlightCard>
-              <img src="/images/Brookings_Hall.jpg" alt="Picture of Brookings Hall, Washington University" className="w-full h-full object-cover" />
-            </SpotlightCard>
-          </div>
+          <About />
         );
       // Employment section edits here -----------------
       case 'Employment':
@@ -94,10 +77,16 @@ export default function Home() {
 
   return (
     <AuroraBackground>
-      <div className="flex min-h-screen items-center justify-center">
-        {renderContent()}
+      {/* Scrollable Content Area */}
+      <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
+        <div className="w-full h-full overflow-y-auto">
+          <div className="min-h-full flex items-center justify-center py-20 px-4">
+            {renderContent()}
+          </div>
+        </div>
       </div>
-      <div className="absolute bottom-10 w-full flex justify-center">
+      {/* Fixed Dock Navigation */}
+      <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 w-full flex justify-center z-50">
         <Dock
           items={items}
           panelHeight={30}

@@ -63,7 +63,7 @@ export default function Dock({
   return (
     <div className="mx-2 flex max-w-full items-center">
       <div
-        className={`${className} flex items-center w-fit gap-3 rounded-2xl border-neutral-700 border-2 py-2 px-4`}
+        className={`${className} flex items-center w-fit gap-3 rounded-2xl border-neutral-700 border-2 py-2 px-4 bg-[#06001085]`}
         style={{ height: panelHeight }}
         role="toolbar"
         aria-label="Application dock"
