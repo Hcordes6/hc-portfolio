@@ -43,31 +43,52 @@ export default function Home() {
       // Employment section edits here -----------------
       case 'Employment':
         return (
-          <div className="text-center max-w-2xl mx-auto px-4">
-            <h1 className="text-4xl font-bold text-white mb-4">Employment</h1>
-            <p className="text-lg text-white/80">
-
-            </p>
+          <div className="w-full max-w-6xl mx-auto px-4 py-8">
+            <div className="text-center mb-12">
+              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                Employment
+              </h1>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+            </div>
+            <div className="text-center">
+              <p className="text-lg text-white/70">
+                Employment history will be displayed here.
+              </p>
+            </div>
           </div>
         );
       // Projects section edits here -----------------
       case 'Projects':
         return (
-          <div className="text-center max-w-2xl mx-auto px-4">
-            <h1 className="text-4xl font-bold text-white mb-4">Projects</h1>
-            <p className="text-lg text-white/80">
-
-            </p>
+          <div className="w-full max-w-6xl mx-auto px-4 py-8">
+            <div className="text-center mb-12">
+              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                Projects
+              </h1>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+            </div>
+            <div className="text-center">
+              <p className="text-lg text-white/70">
+                Featured projects will be displayed here.
+              </p>
+            </div>
           </div>
         );
       // Contact section edits here -----------------
       case 'Contact':
         return (
-          <div className="text-center max-w-2xl mx-auto px-4">
-            <h1 className="text-4xl font-bold text-white mb-4">Contact</h1>
-            <p className="text-lg text-white/80">
-
-            </p>
+          <div className="w-full max-w-6xl mx-auto px-4 py-8">
+            <div className="text-center mb-12">
+              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                Contact
+              </h1>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+            </div>
+            <div className="text-center">
+              <p className="text-lg text-white/70">
+                Contact information and form will be displayed here.
+              </p>
+            </div>
           </div>
         );
       default:
