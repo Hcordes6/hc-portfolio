@@ -14,23 +14,23 @@ export default function Home() {
     setActiveSection('About');
   };
 
-  const handleEmployment = () => {
-    setActiveSection('Employment');
-  };
-
   const handleProjects = () => {
     setActiveSection('Projects');
   };
 
-  const handleContact = () => {
-    setActiveSection('Contact');
+  const handleMedia = () => {
+    setActiveSection('Media');
+  };
+
+  const handleBlog = () => {
+    setActiveSection('Blog');
   };
 
   const items = [
     { label: 'About', onClick: handleAbout },
-    { label: 'Employment', onClick: handleEmployment },
     { label: 'Projects', onClick: handleProjects },
-    { label: 'Contact', onClick: handleContact },
+    { label: 'Media', onClick: handleMedia },
+    { label: 'Blog', onClick: handleBlog },
   ];
 
   const renderContent = () => {
@@ -39,23 +39,6 @@ export default function Home() {
       case 'About':
         return (
           <About />
-        );
-      // Employment section edits here -----------------
-      case 'Employment':
-        return (
-          <div className="w-full max-w-6xl mx-auto px-4 py-8">
-            <div className="text-center mb-12">
-              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                Employment
-              </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
-            </div>
-            <div className="text-center">
-              <p className="text-lg text-white/70">
-                Employment history will be displayed here.
-              </p>
-            </div>
-          </div>
         );
       // Projects section edits here -----------------
       case 'Projects':
@@ -74,19 +57,36 @@ export default function Home() {
             </div>
           </div>
         );
-      // Contact section edits here -----------------
-      case 'Contact':
+      // Media section edits here -----------------
+      case 'Media':
         return (
           <div className="w-full max-w-6xl mx-auto px-4 py-8">
             <div className="text-center mb-12">
               <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                Contact
+                Media
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
             <div className="text-center">
               <p className="text-lg text-white/70">
-                Contact information and form will be displayed here.
+                Media content will be displayed here.
+              </p>
+            </div>
+          </div>
+        );
+      // Blog section edits here -----------------
+      case 'Blog':
+        return (
+          <div className="w-full max-w-6xl mx-auto px-4 py-8">
+            <div className="text-center mb-12">
+              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                Blog
+              </h1>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+            </div>
+            <div className="text-center">
+              <p className="text-lg text-white/70">
+                Blog posts will be displayed here.
               </p>
             </div>
           </div>
