@@ -6,6 +6,7 @@ import Dock from "@/components/animations/dock";
 import { Linkedin, Github, Mail } from "lucide-react";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import About from "./pages/about";
+import Projects from "./pages/projects";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('About');
@@ -43,19 +44,7 @@ export default function Home() {
       // Projects section edits here -----------------
       case 'Projects':
         return (
-          <div className="w-full max-w-6xl mx-auto px-4 py-8">
-            <div className="text-center mb-12">
-              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                Projects
-              </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
-            </div>
-            <div className="text-center">
-              <p className="text-lg text-white/70">
-                Featured projects will be displayed here.
-              </p>
-            </div>
-          </div>
+          <Projects />
         );
       // Media section edits here -----------------
       case 'Media':

@@ -25,7 +25,7 @@ export default function About() {
                             </div>
                             <div className="flex-1">
                                 <p className="text-lg text-white/90 leading-relaxed">
-                                    I'm a Software Developer at <span className="font-semibold text-white">DevSTAC</span>, working on diverse client projects. I'm also a student at <span className="font-semibold text-white">Washington University in St. Louis</span>, pursuing Computer Science and Human-Computer Interaction.
+                                    I'm a Software Developer at <span className="font-semibold text-white">DevSTAC</span>, working on a wide range of client projects. I'm also a student at <span className="font-semibold text-white">Washington University in St. Louis</span>, pursuing Computer Science and Human-Computer Interaction.
                                 </p>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ export default function About() {
                             <div>
                                 <h3 className="text-white font-semibold mb-2">Location</h3>
                                 <p className="text-white/70 leading-relaxed">
-                                    Born in Minnesota, raised in St. Paul. Currently splitting time between St. Louis and the Twin Cities.
+                                    Born in Minnesota, raised in St. Paul. Currently based in both St. Louis and the Twin Cities.
                                 </p>
                             </div>
                         </div>
