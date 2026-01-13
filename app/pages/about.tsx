@@ -100,7 +100,7 @@ export default function About() {
                             
                             {/* Dropdown Extension */}
                             <div
-                                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                                className={`overflow-hidden transition-all duration-200 ease-in-out ${
                                     isTechStackHovered 
                                         ? 'max-h-96 opacity-100 mt-4' 
                                         : 'max-h-0 opacity-0 mt-0'
