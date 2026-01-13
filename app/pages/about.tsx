@@ -77,7 +77,6 @@ export default function About() {
 
                     {/* Tech Stack */}
                     <div
-                        className="relative"
                         onMouseEnter={() => setIsTechStackHovered(true)}
                         onMouseLeave={() => setIsTechStackHovered(false)}
                     >
@@ -98,24 +97,31 @@ export default function About() {
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Dropdown on Hover */}
-                            {isTechStackHovered && (
-                                <div
-                                    className="absolute top-full left-0 right-0 mt-2 p-4 bg-black/90 backdrop-blur-sm rounded-lg border border-white/20 shadow-xl z-10 transition-all duration-300 ease-in-out"
-                                    onMouseEnter={() => setIsTechStackHovered(true)}
-                                    onMouseLeave={() => setIsTechStackHovered(false)}
-                                >
-                                    <h3 className="text-white font-semibold mb-3">I also have experience with</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Convex'].map((tech) => (
-                                            <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
-                                                {tech}
-                                            </span>
-                                        ))}
+                            
+                            {/* Dropdown Extension */}
+                            <div
+                                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                                    isTechStackHovered 
+                                        ? 'max-h-96 opacity-100 mt-4' 
+                                        : 'max-h-0 opacity-0 mt-0'
+                                }`}
+                            >
+                                <div className="pt-4 border-t border-white/10">
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-6 shrink-0" />
+                                        <div className="flex-1">
+                                            <h3 className="text-white font-semibold mb-3">I also have experience with</h3>
+                                            <div className="flex flex-wrap gap-2">
+                                                {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Convex'].map((tech) => (
+                                                    <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            )}
+                            </div>
                         </SpotlightCard>
                     </div>
 
