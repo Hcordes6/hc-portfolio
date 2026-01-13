@@ -18,7 +18,7 @@ export default function About() {
             </div>
 
             {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-2 gap-8 items-start">
+            <div className="grid lg:grid-cols-2 gap-8 lg:items-start">
                 {/* Left Column - Text Content */}
                 <div className="space-y-6">
                     {/* Introduction Card */}
@@ -112,7 +112,7 @@ export default function About() {
                                         <div className="flex-1">
                                             <h3 className="text-white font-semibold mb-3">I also have experience with</h3>
                                             <div className="flex flex-wrap gap-2">
-                                                {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Convex'].map((tech) => (
+                                                {['React Native', 'C#', 'ASP.NET', 'MySQL', 'Angular', 'PHP', 'AWS', 'C++'].map((tech) => (
                                                     <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
                                                         {tech}
                                                     </span>
@@ -141,12 +141,12 @@ export default function About() {
                 </div>
 
                 {/* Right Column - Image */}
-                <div className="lg:sticky lg:top-8">
-                    <SpotlightCard className="aspect-[4/5] overflow-hidden">
+                <div className="lg:sticky lg:top-[15%] lg:self-start">
+                    <SpotlightCard className="overflow-hidden max-w-sm mx-auto lg:max-w-full">
                         <img
                             src="/images/Brookings_Hall.jpg"
                             alt="Picture of Brookings Hall, Washington University"
-                            className="w-full h-full object-cover"
+                            className="w-full h-auto object-cover max-h-[500px]"
                         />
                     </SpotlightCard>
                 </div>
