@@ -1,8 +1,12 @@
 "use client";
+import { useState } from "react";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles } from "lucide-react";
 
 export default function About() {
+    const [isTechStackHovered, setIsTechStackHovered] = useState(false);
+
+
     return (
         <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
             {/* Header */}
@@ -20,7 +24,7 @@ export default function About() {
                     {/* Introduction Card */}
                     <SpotlightCard className="p-6">
                         <div className="flex items-start gap-4">
-                                <div className="shrink-0 w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                            <div className="shrink-0 w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
                                 <Sparkles className="w-6 h-6 text-white" />
                             </div>
                             <div className="flex-1">
@@ -51,7 +55,7 @@ export default function About() {
                                 <div>
                                     <h3 className="text-white font-semibold mb-2">Education</h3>
                                     <p className="text-white/70 text-sm leading-relaxed">
-                                        Washington University in St. Louis - Computer Science & HCI (2024 - Present)
+                                        Washington University in St. Louis - Computer Science & HCI
                                     </p>
                                 </div>
                             </div>
@@ -72,24 +76,49 @@ export default function About() {
                     </SpotlightCard>
 
                     {/* Tech Stack */}
-                    <SpotlightCard className="p-6">
-                        <div className="flex items-start gap-4">
-                            <Code className="w-6 h-6 text-white/80 mt-1 shrink-0" />
-                            <div className="flex-1">
-                                <h3 className="text-white font-semibold mb-3">Tech Stack</h3>
-                                <p className="text-white/70 mb-4 leading-relaxed">
-                                    React/Next.js, Tailwind CSS, TypeScript, Convex. I love learning new technologies and adapt my toolkit to each project's needs.
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Convex'].map((tech) => (
-                                        <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
-                                            {tech}
-                                        </span>
-                                    ))}
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setIsTechStackHovered(true)}
+                        onMouseLeave={() => setIsTechStackHovered(false)}
+                    >
+                        <SpotlightCard className="p-6">
+                            <div className="flex items-start gap-4">
+                                <Code className="w-6 h-6 text-white/80 mt-1 shrink-0" />
+                                <div className="flex-1">
+                                    <h3 className="text-white font-semibold mb-3">Tech Stack</h3>
+                                    <p className="text-white/70 mb-4 leading-relaxed">
+                                        React/Next.js, Tailwind CSS, TypeScript, Convex. I often learn new technologies and adapt my toolkit to each project's needs.
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Convex'].map((tech) => (
+                                            <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </SpotlightCard>
+
+                            {/* Dropdown on Hover */}
+                            {isTechStackHovered && (
+                                <div
+                                    className="absolute top-full left-0 right-0 mt-2 p-4 bg-black/90 backdrop-blur-sm rounded-lg border border-white/20 shadow-xl z-10 transition-all duration-300 ease-in-out"
+                                    onMouseEnter={() => setIsTechStackHovered(true)}
+                                    onMouseLeave={() => setIsTechStackHovered(false)}
+                                >
+                                    <h3 className="text-white font-semibold mb-3">I also have experience with</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Convex'].map((tech) => (
+                                            <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </SpotlightCard>
+                    </div>
+
 
                     {/* Interests */}
                     <SpotlightCard className="p-5">
@@ -98,7 +127,7 @@ export default function About() {
                             <div>
                                 <h3 className="text-white font-semibold mb-2">Interests</h3>
                                 <p className="text-white/70 leading-relaxed">
-                                    Rock climbing, tennis, and music
+                                    Rock climbing, tennis, and the outdoors.
                                 </p>
                             </div>
                         </div>
@@ -108,10 +137,10 @@ export default function About() {
                 {/* Right Column - Image */}
                 <div className="lg:sticky lg:top-8">
                     <SpotlightCard className="aspect-[4/5] overflow-hidden">
-                        <img 
-                            src="/images/Brookings_Hall.jpg" 
-                            alt="Picture of Brookings Hall, Washington University" 
-                            className="w-full h-full object-cover" 
+                        <img
+                            src="/images/Brookings_Hall.jpg"
+                            alt="Picture of Brookings Hall, Washington University"
+                            className="w-full h-full object-cover"
                         />
                     </SpotlightCard>
                 </div>
