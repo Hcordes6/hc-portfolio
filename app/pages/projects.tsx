@@ -33,9 +33,10 @@ export default function Projects() {
         <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
             {/* Header */}
             <div className="text-center mb-12">
-                <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r text-white/70">
                     Projects
                 </h1>
+                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
             <div className="grid lg:grid-cols-3 gap-8 items-start">
                 {/* Left Column - Text Content */}
