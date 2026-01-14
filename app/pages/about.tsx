@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import SpotlightCard from "@/components/animations/SpotlightCard";
-import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles } from "lucide-react";
+import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function About() {
     const [isTechStackHovered, setIsTechStackHovered] = useState(false);
@@ -82,7 +82,11 @@ export default function About() {
                     >
                         <SpotlightCard className="p-6">
                             <div className="flex items-start gap-4">
-                                <Code className="w-6 h-6 text-white/80 mt-1 shrink-0" />
+                                <div className="flex flex-col justify-between items-center self-stretch">
+                                    <Code className="w-6 h-6 text-white/80 shrink-0" />
+                                    {isTechStackHovered ? <ChevronUp className="w-6 h-6 text-white/80 shrink-0" /> : <ChevronDown className="w-6 h-6 text-white/80 shrink-0" />}
+                                </div>
+
                                 <div className="flex-1">
                                     <h3 className="text-white font-semibold mb-3">Tech Stack</h3>
                                     <p className="text-white/70 mb-4 leading-relaxed">
@@ -97,14 +101,13 @@ export default function About() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* Dropdown Extension */}
                             <div
-                                className={`overflow-hidden transition-all duration-200 ease-in-out ${
-                                    isTechStackHovered 
-                                        ? 'max-h-96 opacity-100 mt-4' 
+                                className={`overflow-hidden transition-all duration-200 ease-in-out ${isTechStackHovered
+                                        ? 'max-h-96 opacity-100 mt-4'
                                         : 'max-h-0 opacity-0 mt-0'
-                                }`}
+                                    }`}
                             >
                                 <div className="pt-4 border-t border-white/10">
                                     <div className="flex items-start gap-4">
