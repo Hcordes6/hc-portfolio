@@ -1,5 +1,6 @@
 "use client";
 import SpotlightCard from "@/components/animations/SpotlightCard";
+import { ExternalLink } from "lucide-react";
 
 export default function Projects() {
     const projects = [
@@ -41,7 +42,13 @@ export default function Projects() {
                 {projects.map((project, index) => (
                     <SpotlightCard key={index} className="p-5">
                         <div className="flex flex-col items-start gap-3 h-55">
-                            <h3 className="text-white font-semibold mb-2">{project.title}</h3>
+                            <div className="flex flex-row w-full justify-between">
+                                <h3 className="text-white font-semibold mb-2">{project.title}</h3>
+                                <a href={project.link} target="_blank">
+                                    <ExternalLink className="w-5 h-5 text-white" />
+                                </a>
+                            </div>
+
                             <p className="text-white/70 text-sm leading-relaxed">
                                 {project.description}
                             </p>
