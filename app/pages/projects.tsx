@@ -8,31 +8,43 @@ export default function Projects() {
             title: "BearShare",
             description: "Social platform for WashU students to connect with other students in their courses. Supports course discussion and file sharing. Utilizes authentication and database for user and post data management.",
             techStack: ["Next.js", "Tailwind", "Typescript", "Convex", "Clerk"],
-            link: "https://github.com/Hcordes6/BearShare"
+            link: "https://github.com/Hcordes6/BearShare",
+            isDevSTAC: false
+        },
+        {
+            title: "DevSTAC: Postpartum Mental Health App",
+            description: "Mobile app designed to support the patients of the WashU OBGYN's. Includes weekly mental health check-ins, educational resources, and local resources based on the patient's location.",
+            techStack: ["React Native", "Expo", "Figma", "PostHog"],
+            link: "s",
+            isDevSTAC: true
         },
         {
             title: "Madness.AI",
             description: "Uses college basketball statistics API. Users can adjust sliders to generate a unique march madness bracket bassed on their preferred statistics.",
             techStack: ["Node.js", "HTML", "CSS", "JavaScript"],
-            link: "https://github.com/Hcordes6/Madness.AI"
+            link: "https://github.com/Hcordes6/Madness.AI",
+            isDevSTAC: false
         },
         {
             title: "Simulated File System",
             description: "File system simulation that can be interacted with through a customized command prompt. The commands implemented allow the user to interact with the file system, allowing file creation, deletion, reading files, and writing to files",
             techStack: ["C++", "CMake", "Object-Oriented Design"],
-            link: "https://github.com/Hcordes6/BearShare"
+            link: "https://github.com/Hcordes6/BearShare",
+            isDevSTAC: false
         },
         {
             title: "Book to Website",
             description: "Front-end design final project. Directly translates a book into a website. Focuses on easy navigation and indexing of the book.",
             techStack: ["HTML", "CSS", "JavaScript", "Figma"],
-            link: "https://github.com/Hcordes6/BearShare"
+            link: "https://github.com/Hcordes6/BearShare",
+            isDevSTAC: false
         },
         {
             title: "Web File Sharing Site",
             description: "A simu",
             techStack: ["HTML", "CSS", "JavaScript", "Figma"],
-            link: "https://github.com/Hcordes6/BearShare"
+            link: "https://github.com/Hcordes6/BearShare",
+            isDevSTAC: false
         },
     ];
     return (
@@ -47,7 +59,7 @@ export default function Projects() {
             <div className="grid lg:grid-cols-3 gap-8 items-start">
                 {/* Left Column - Text Content */}
                 {projects.map((project, index) => (
-                    <SpotlightCard key={index} className="p-5">
+                    <SpotlightCard key={index} className="p-5" borderColor={project.isDevSTAC ? "border-neutral-400" : "border-neutral-800"}>
                         <div className="flex flex-col items-start gap-3 h-55">
                             <div className="flex flex-row w-full justify-between">
                                 <h3 className="text-white font-semibold mb-2">{project.title}</h3>
