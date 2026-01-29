@@ -62,19 +62,6 @@ export default function About() {
                         </SpotlightCard>
                     </div>
 
-                    {/* Location */}
-                    <SpotlightCard className="p-5">
-                        <div className="flex items-start gap-3">
-                            <MapPin className="w-5 h-5 text-white/80 mt-1 shrink-0" />
-                            <div>
-                                <h3 className="text-white font-semibold mb-2">Location</h3>
-                                <p className="text-white/70 leading-relaxed">
-                                    Born in Minnesota, raised in St. Paul. Currently based in both St. Louis and the Twin Cities.
-                                </p>
-                            </div>
-                        </div>
-                    </SpotlightCard>
-
                     {/* Tech Stack */}
                     <div
                         onMouseEnter={() => setIsTechStackHovered(true)}
@@ -115,7 +102,7 @@ export default function About() {
                                         <div className="flex-1">
                                             <h3 className="text-white font-semibold mb-3">I also have experience with</h3>
                                             <div className="flex flex-wrap gap-2">
-                                                {['React Native', 'C#', 'ASP.NET', 'MySQL', 'Angular', 'PHP', 'AWS', 'C++'].map((tech) => (
+                                                {['React Native', 'Linux', 'Figma', 'Node.js','C#', 'ASP.NET', 'MySQL', 'Angular', 'PHP', 'AWS', 'C++', 'Unity'].map((tech) => (
                                                     <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
                                                         {tech}
                                                     </span>
@@ -128,6 +115,21 @@ export default function About() {
                         </SpotlightCard>
                     </div>
 
+                    {/* Location */}
+                    <SpotlightCard className="p-5">
+                        <div className="flex items-start gap-3">
+                            <MapPin className="w-5 h-5 text-white/80 mt-1 shrink-0" />
+                            <div>
+                                <h3 className="text-white font-semibold mb-2">Location</h3>
+                                <p className="text-white/70 leading-relaxed">
+                                    Born in Minnesota, raised in St. Paul. Currently based in both St. Louis and the Twin Cities.
+                                </p>
+                            </div>
+                        </div>
+                    </SpotlightCard>
+
+                    
+
 
                     {/* Interests */}
                     <SpotlightCard className="p-5">
@@ -136,7 +138,7 @@ export default function About() {
                             <div>
                                 <h3 className="text-white font-semibold mb-2">Interests</h3>
                                 <p className="text-white/70 leading-relaxed">
-                                    Rock climbing, tennis, and the outdoors.
+                                    Rock climbing, tennis, and the outdoors!
                                 </p>
                             </div>
                         </div>

@@ -6,7 +6,7 @@ export default function Projects() {
     const projects = [
         {
             title: "BearShare",
-            description: "Social platform for WashU students to connect with other students in their courses. Supports course discussion and file sharing.",
+            description: "Social platform for WashU students to connect with other students in their courses. Supports course discussion and file sharing. Utilizes authentication and database for user and post data management.",
             techStack: ["Next.js", "Tailwind", "Typescript", "Convex", "Clerk"],
             link: "https://github.com/Hcordes6/BearShare"
         },
@@ -25,7 +25,13 @@ export default function Projects() {
         {
             title: "Book to Website",
             description: "Front-end design final project. Directly translates a book into a website. Focuses on easy navigation and indexing of the book.",
-            techStack: ["HTML", "CSS", "JavaScript"],
+            techStack: ["HTML", "CSS", "JavaScript", "Figma"],
+            link: "https://github.com/Hcordes6/BearShare"
+        },
+        {
+            title: "Web File Sharing Site",
+            description: "A simu",
+            techStack: ["HTML", "CSS", "JavaScript", "Figma"],
             link: "https://github.com/Hcordes6/BearShare"
         },
     ];
