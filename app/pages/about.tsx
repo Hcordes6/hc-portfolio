@@ -1,5 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
 
@@ -12,7 +14,7 @@ export default function About() {
             {/* Header */}
             <div className="text-center mb-12">
                 <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r text-white/70">
-                    About Me
+                    About
                 </h1>
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
@@ -102,7 +104,7 @@ export default function About() {
                                         <div className="flex-1">
                                             <h3 className="text-white font-semibold mb-3">I also have experience with</h3>
                                             <div className="flex flex-wrap gap-2">
-                                                {['React Native', 'Linux', 'Figma', 'Node.js','C#', 'ASP.NET', 'MySQL', 'Angular', 'PHP', 'AWS', 'C++', 'Unity'].map((tech) => (
+                                                {['React Native', 'Linux', 'Figma', 'PHP', 'AWS', 'Node.js', 'MySQL',  'C++', 'Unity', 'PostHog'].map((tech) => (
                                                     <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
                                                         {tech}
                                                     </span>
@@ -148,13 +150,17 @@ export default function About() {
                 {/* Right Column - Image */}
                 <div className="lg:sticky lg:top-[15%] lg:self-start">
                     <SpotlightCard className="overflow-hidden max-w-sm mx-auto lg:max-w-full">
-                        <img
+                        <Image
                             src="/images/Brookings_Hall.jpg"
                             alt="Picture of Brookings Hall, Washington University"
-                            className="w-full h-auto object-cover max-h-[500px]"
+                            className="w-full h-auto object-cover max-h-96"
+                            width={500}
+                            height={500}
                         />
                     </SpotlightCard>
                 </div>
+
+                {/* Contact me here -----> add */}
             </div>
         </div>
     );

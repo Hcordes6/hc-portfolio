@@ -1,6 +1,7 @@
 "use client";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import { ExternalLink } from "lucide-react";
+import { useState } from "react";
 
 export default function Projects() {
     const projects = [
@@ -15,7 +16,7 @@ export default function Projects() {
             title: "DevSTAC: Postpartum Mental Health App",
             description: "Mobile app designed to support the patients of the WashU OBGYN's. Includes weekly mental health check-ins, educational resources, and local resources based on the patient's location.",
             techStack: ["React Native", "Expo", "Figma", "PostHog"],
-            link: "s",
+            link: undefined, // No public repository
             isDevSTAC: true
         },
         {
@@ -29,21 +30,21 @@ export default function Projects() {
             title: "Simulated File System",
             description: "File system simulation that can be interacted with through a customized command prompt. The commands implemented allow the user to interact with the file system, allowing file creation, deletion, reading files, and writing to files",
             techStack: ["C++", "CMake", "Object-Oriented Design"],
-            link: "https://github.com/Hcordes6/BearShare",
+            link: undefined, // No public repository
             isDevSTAC: false
         },
         {
             title: "Book to Website",
             description: "Front-end design final project. Directly translates a book into a website. Focuses on easy navigation and indexing of the book.",
             techStack: ["HTML", "CSS", "JavaScript", "Figma"],
-            link: "https://github.com/Hcordes6/BearShare",
+            link: "https://github.com/Hcordes6/Book-to-Website",
             isDevSTAC: false
         },
         {
             title: "Web File Sharing Site",
-            description: "A simu",
-            techStack: ["HTML", "CSS", "JavaScript", "Figma"],
-            link: "https://github.com/Hcordes6/BearShare",
+            description: "Currently in development. Users can upload and share files through a web interface. Developed using traditional LAMP stack.",
+            techStack: ["PHP", "CSS", "AWS", "Linux"],
+            link: undefined, // No public repository
             isDevSTAC: false
         },
     ];
@@ -59,14 +60,24 @@ export default function Projects() {
             <div className="grid lg:grid-cols-3 gap-8 items-start">
                 {/* Left Column - Text Content */}
                 {projects.map((project, index) => (
-                    <SpotlightCard key={index} className="p-5" borderColor={project.isDevSTAC ? "border-neutral-400" : "border-neutral-800"}>
-                        <div className="flex flex-col items-start gap-3 h-55">
-                            <div className="flex flex-row w-full justify-between">
-                                <h3 className="text-white font-semibold mb-2">{project.title}</h3>
-                                <a href={project.link} target="_blank">
-                                    <ExternalLink className="w-5 h-5 text-white" />
-                                </a>
-                            </div>
+                    <div key={index} className="relative">
+                        <SpotlightCard className="p-5" borderColor={project.isDevSTAC ? "border-neutral-400" : "border-neutral-800"}>
+                            <div className="flex flex-col items-start gap-3 h-55">
+                                <div className="flex flex-row w-full justify-between items-start">
+                                    <h3 className="text-white font-semibold mb-2">{project.title}</h3>
+                                    {project.link ? (
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                            <ExternalLink className="w-5 h-5 text-white hover:text-white/70 transition-colors" />
+                                        </a>
+                                    ) : (
+                                        <div className="relative group">
+                                            <ExternalLink className="w-5 h-5 text-white/30 cursor-not-allowed" />
+                                            <div className="absolute top-7 right-0 px-3 py-1.5 bg-neutral-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg z-50">
+                                                No public repository
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
 
                             <p className="text-white/70 text-sm leading-relaxed">
                                 {project.description}
@@ -80,6 +91,7 @@ export default function Projects() {
                             </div>
                         </div>
                     </SpotlightCard>
+                    </div>
                 ))}
             </div>
         </div>
