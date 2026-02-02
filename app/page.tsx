@@ -57,10 +57,10 @@ export default function Home() {
         return (
           <div className="w-full max-w-6xl mx-auto px-4 py-8">
             <div className="text-center mb-12">
-              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+              <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
                 Blog
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+              <div className="w-24 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
             <div className="text-center">
               <p className="text-lg text-white/70">

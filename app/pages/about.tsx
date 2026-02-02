@@ -1,26 +1,90 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import SpotlightCard from "@/components/animations/SpotlightCard";
-import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles, ChevronDown, ChevronUp, Linkedin, Github, Mail } from "lucide-react";
 
 export default function About() {
     const [isTechStackHovered, setIsTechStackHovered] = useState(false);
+
+    const contactSectionRef = useRef<HTMLDivElement | null>(null);
+
+    const [contactIconsVisible, setContactIconsVisible] = useState(false);
+    const [transitionDirection, setTransitionDirection] = useState<"up" | "down">("down");
+    const scrollDirRef = useRef<"up" | "down">("down");
+
+    useEffect(() => {
+        const sectionEl = contactSectionRef.current;
+        if (!sectionEl) return;
+
+        const findScrollParent = (node: HTMLElement | null) => {
+            let current = node?.parentElement;
+            while (current && current !== document.body) {
+                const style = window.getComputedStyle(current);
+                const overflowY = style.overflowY;
+                if (overflowY === "auto" || overflowY === "scroll") return current;
+                current = current.parentElement;
+            }
+            return null;
+        };
+
+        const scrollParent = findScrollParent(sectionEl);
+        const getScrollTop = () => {
+            if (scrollParent) return scrollParent.scrollTop;
+            return window.scrollY;
+        };
+
+        let lastScrollTop = getScrollTop();
+
+        const onScroll = () => {
+            const next = getScrollTop();
+            if (next === lastScrollTop) return;
+            scrollDirRef.current = next > lastScrollTop ? "down" : "up";
+            lastScrollTop = next;
+        };
+
+        (scrollParent ?? window).addEventListener("scroll", onScroll, { passive: true } as AddEventListenerOptions);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                const inView = Boolean(entry?.isIntersecting);
+                const dir = scrollDirRef.current;
+
+                setTransitionDirection(dir);
+
+                if (inView) {
+                    setContactIconsVisible(false);
+                    window.requestAnimationFrame(() => setContactIconsVisible(true));
+                } else {
+                    setContactIconsVisible(false);
+                }
+            },
+            { threshold: 0.35 }
+        );
+
+        observer.observe(sectionEl);
+
+        return () => {
+            observer.disconnect();
+            (scrollParent ?? window).removeEventListener("scroll", onScroll as EventListener);
+        };
+    }, []);
 
 
     return (
         <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
             {/* Header */}
             <div className="text-center mb-12">
-                <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r text-white/70">
+                <h1 className="text-5xl font-bold mb-4 bg-linear-to-r text-white/70">
                     About
                 </h1>
-                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+                <div className="w-24 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
 
             {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-2 gap-8 lg:items-start">
+            <div className="grid lg:grid-cols-2 gap-8 lg:items-start mb-20">
                 {/* Left Column - Text Content */}
                 <div className="space-y-6">
                     {/* Introduction Card */}
@@ -94,8 +158,8 @@ export default function About() {
                             {/* Dropdown Extension */}
                             <div
                                 className={`overflow-hidden transition-all duration-200 ease-in-out ${isTechStackHovered
-                                        ? 'max-h-96 opacity-100 mt-4'
-                                        : 'max-h-0 opacity-0 mt-0'
+                                    ? 'max-h-96 opacity-100 mt-4'
+                                    : 'max-h-0 opacity-0 mt-0'
                                     }`}
                             >
                                 <div className="pt-4 border-t border-white/10">
@@ -104,7 +168,7 @@ export default function About() {
                                         <div className="flex-1">
                                             <h3 className="text-white font-semibold mb-3">I also have experience with</h3>
                                             <div className="flex flex-wrap gap-2">
-                                                {['React Native', 'Linux', 'Figma', 'PHP', 'AWS', 'Node.js', 'MySQL',  'C++', 'Unity', 'PostHog'].map((tech) => (
+                                                {['React Native', 'Linux', 'Figma', 'PHP', 'AWS', 'Node.js', 'MySQL', 'C++', 'Unity', 'PostHog'].map((tech) => (
                                                     <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-full border border-white/20">
                                                         {tech}
                                                     </span>
@@ -130,7 +194,7 @@ export default function About() {
                         </div>
                     </SpotlightCard>
 
-                    
+
 
 
                     {/* Interests */}
@@ -160,7 +224,65 @@ export default function About() {
                     </SpotlightCard>
                 </div>
 
-                {/* Contact me here -----> add */}
+
+            </div>
+            {/* Contact me here -----> add */}
+            <div className="w-3/5 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+            <div ref={contactSectionRef} className="w-full mt-16 px-4 pb-24">
+                <SpotlightCard className="relative p-10 text-center overflow-hidden">
+                    <div className="pointer-events-none absolute inset-0 opacity-60">
+                        <div className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
+                        <div className="absolute -bottom-24 right-10 h-48 w-48 rounded-full bg-white/5 blur-3xl" />
+                    </div>
+
+                    <div className="relative">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/70">
+                            Get in touch
+                        </div>
+
+                        <h1
+                            className="mt-4 text-4xl sm:text-5xl font-bold bg-linear-to-r from-white to-white/60 bg-clip-text text-transparent"
+                        >
+                            Contact Me
+                        </h1>
+
+                        <div className="mt-5 mx-auto h-px w-40 bg-linear-to-r from-transparent via-white/30 to-transparent" />
+
+                        <div
+                            className={`mt-7 flex items-center justify-center gap-4 transition-all duration-1500 ease-out ${
+                                contactIconsVisible
+                                    ? "opacity-100 translate-y-0 pointer-events-auto"
+                                    : `opacity-0 ${transitionDirection === "down" ? "translate-y-4" : "-translate-y-4"} pointer-events-none`
+                            }`}
+                        >
+                            <a
+                                href="https://www.linkedin.com/in/hcordes97/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white/80 hover:text-white transition-colors hover:scale-110 transform"
+                                aria-label="LinkedIn"
+                            >
+                                <Linkedin size={42} />
+                            </a>
+                            <a
+                                href="https://github.com/hcordes6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white/80 hover:text-white transition-colors hover:scale-110 transform"
+                                aria-label="GitHub"
+                            >
+                                <Github size={42} />
+                            </a>
+                            <a
+                                href="mailto:hcordesmn@gmail.com"
+                                className="text-white/80 hover:text-white transition-colors hover:scale-110 transform"
+                                aria-label="Email"
+                            >
+                                <Mail size={42} />
+                            </a>
+                        </div>
+                    </div>
+                </SpotlightCard>
             </div>
         </div>
     );
