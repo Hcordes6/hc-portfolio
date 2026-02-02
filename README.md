@@ -4,7 +4,7 @@ Personal website.
 
 ### Links
 
-- Live site: [(add your deployed URL)](https://henrycordes.dev/)
+- [Live Site](https://henrycordes.dev/)
 - Repository: https://github.com/Hcordes6/hc-portfolio
 
 ### Tech Stack
