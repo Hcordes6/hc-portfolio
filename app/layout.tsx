@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Henry Cordes",
-  description: "Henry Cordes -- Software Developer",
+  description: "Henry Cordes -- Software Developer and Student",
 };
 
 export default function RootLayout({

@@ -31,8 +31,8 @@ export default function Home() {
   const items = [
     { label: 'About', onClick: handleAbout },
     { label: 'Projects', onClick: handleProjects },
-    { label: 'Media', onClick: handleMedia },
-    { label: 'Blog', onClick: handleBlog },
+    // { label: 'Media', onClick: handleMedia },
+    // { label: 'Blog', onClick: handleBlog },
   ];
 
   const renderContent = () => {
@@ -48,27 +48,27 @@ export default function Home() {
           <Projects />
         );
       // Media section edits here -----------------
-      case 'Media':
-        return (
-          <Media />
-        );
-      // Blog section edits here -----------------
-      case 'Blog':
-        return (
-          <div className="w-full max-w-6xl mx-auto px-4 py-8">
-            <div className="text-center mb-12">
-              <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
-                Blog
-              </h1>
-              <div className="w-24 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
-            </div>
-            <div className="text-center">
-              <p className="text-lg text-white/70">
-                Blog posts will be displayed here.
-              </p>
-            </div>
-          </div>
-        );
+      // case 'Media':
+      //   return (
+      //     <Media />
+      //   );
+      // // Blog section edits here -----------------
+      // case 'Blog':
+      //   return (
+      //     <div className="w-full max-w-6xl mx-auto px-4 py-8">
+      //       <div className="text-center mb-12">
+      //         <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
+      //           Blog
+      //         </h1>
+      //         <div className="w-24 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+      //       </div>
+      //       <div className="text-center">
+      //         <p className="text-lg text-white/70">
+      //           Blog posts will be displayed here.
+      //         </p>
+      //       </div>
+      //     </div>
+      //   );
       default:
         return null;
     }
