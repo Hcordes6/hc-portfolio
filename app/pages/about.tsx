@@ -121,7 +121,7 @@ export default function About() {
                                 <div>
                                     <h3 className="text-white font-semibold mb-2">Education</h3>
                                     <p className="text-white/70 text-sm leading-relaxed">
-                                        Washington University in St. Louis - Computer Science & HCI
+                                        Washington University in St. Louis - B.S. in Computer Science, Minor in HCI
                                     </p>
                                 </div>
                             </div>
@@ -212,15 +212,39 @@ export default function About() {
                 </div>
 
                 {/* Right Column - Image */}
-                <div className="lg:sticky lg:top-[15%] lg:self-start">
-                    <SpotlightCard className="overflow-hidden max-w-sm mx-auto lg:max-w-full">
-                        <Image
-                            src="/images/Brookings_Hall.jpg"
-                            alt="Picture of Brookings Hall, Washington University"
-                            className="w-full h-auto object-cover max-h-96"
-                            width={500}
-                            height={500}
-                        />
+                <div className="lg:sticky lg:top-[2%] lg:self-start">
+                    <div>
+                        <SpotlightCard className="overflow-hidden max-w-sm mx-auto lg:max-w-full">
+                            <Image
+                                src="/images/Brookings_Hall.jpg"
+                                alt="Picture of Brookings Hall, Washington University"
+                                className="w-full h-auto object-cover max-h-96"
+                                width={500}
+                                height={500}
+                            />
+                        </SpotlightCard>
+                    </div>
+                    <SpotlightCard className="overflow-hidden mt-2">
+                        <div className="grid grid-cols-2 gap-0">
+                            <div className="relative aspect-4/3">
+                                <Image
+                                    src="/images/St_Paul_Skyline.jpg"
+                                    alt="Picture of the St. Paul skyline"
+                                    fill
+                                    sizes="(min-width: 1024px) 50vw, 100vw"
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="relative aspect-4/3">
+                                <Image
+                                    src="/images/Lead_Climbing_RedRiver_Uncompressed.jpg"
+                                    alt="Picture of me climbing at Red River Gorge in Kentucky"
+                                    fill
+                                    sizes="(min-width: 1024px) 50vw, 100vw"
+                                    className="object-cover"
+                                />
+                            </div>
+                        </div>
                     </SpotlightCard>
                 </div>
 
@@ -249,11 +273,10 @@ export default function About() {
                         <div className="mt-5 mx-auto h-px w-40 bg-linear-to-r from-transparent via-white/30 to-transparent" />
 
                         <div
-                            className={`mt-7 flex items-center justify-center gap-4 transition-all duration-1500 ease-out ${
-                                contactIconsVisible
-                                    ? "opacity-100 translate-y-0 pointer-events-auto"
-                                    : `opacity-0 ${transitionDirection === "down" ? "translate-y-4" : "-translate-y-4"} pointer-events-none`
-                            }`}
+                            className={`mt-7 flex items-center justify-center gap-4 transition-all duration-1500 ease-out ${contactIconsVisible
+                                ? "opacity-100 translate-y-0 pointer-events-auto"
+                                : `opacity-0 ${transitionDirection === "down" ? "translate-y-4" : "-translate-y-4"} pointer-events-none`
+                                }`}
                         >
                             <a
                                 href="https://www.linkedin.com/in/hcordes97/"
