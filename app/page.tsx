@@ -1,13 +1,10 @@
 "use client";
 import { useState } from "react";
 import { AuroraBackground } from "@/components/ui/shadcn-io/aurora-background";
-import RotatingText from "@/components/animations/rotatingText";
 import Dock from "@/components/animations/dock";
 import { Linkedin, Github, Mail } from "lucide-react";
-import SpotlightCard from "@/components/animations/SpotlightCard";
 import About from "./pages/about";
 import Projects from "./pages/projects";
-import Media from "./pages/media";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('About');
@@ -20,19 +17,9 @@ export default function Home() {
     setActiveSection('Projects');
   };
 
-  const handleMedia = () => {
-    setActiveSection('Media');
-  };
-
-  const handleBlog = () => {
-    setActiveSection('Blog');
-  };
-
   const items = [
     { label: 'About', onClick: handleAbout },
     { label: 'Projects', onClick: handleProjects },
-    // { label: 'Media', onClick: handleMedia },
-    // { label: 'Blog', onClick: handleBlog },
   ];
 
   const renderContent = () => {
