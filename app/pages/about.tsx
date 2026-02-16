@@ -77,18 +77,20 @@ export default function About() {
     return (
         <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
             {/* Hero */}
-            <section className="w-full min-h-screen mx-auto flex flex-col items-center justify-center text-center pt-10 sm:pt-16 pb-6 sm:pb-10">
-                <h1 className=" text-4xl sm:text-5xl font-bold bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
+            <section className="w-full min-h-screen mx-auto flex flex-col items-start justify-center text-left">
+                <h1 className="inline-block pb-1 text-5xl sm:text-6xl lg:text-7xl leading-[1.12] font-bold bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
                     Henry Cordes
                 </h1>
                 <TextType
-                    className="mt-3 text-lg sm:text-xl font-medium text-white/80"
-                    text={["Software Developer", "Computer Science Student"]}
+                    className="mt-4 text-2xl sm:text-3xl font-medium text-white/80"
+                    text={["Software Developer", "Computer Science Student", "Rock Climber"]}
                     typingSpeed={100}
+                    pauseDuration={4000}
+                    deletingSpeed={50}
                     cursorCharacter="_"
                     cursorClassName="text-white/70"
                 />
-                <div className="mt-6 h-px w-40 bg-linear-to-r from-transparent via-white/30 to-transparent" />
+                <div className="mt-7 h-px w-44 bg-linear-to-r from-transparent via-white/30 to-transparent" />
             </section>
             {/* Header */}
             <div className="text-center mb-12">
