@@ -5,6 +5,7 @@ import Image from "next/image";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles, ChevronDown, ChevronUp, Linkedin, Github, Mail } from "lucide-react";
 import TextType from "@/components/TextType";
+import { section } from "motion/react-m";
 
 export default function About() {
     const [isTechStackHovered, setIsTechStackHovered] = useState(false);
@@ -12,6 +13,7 @@ export default function About() {
     const contactSectionRef = useRef<HTMLDivElement | null>(null);
 
     const [contactIconsVisible, setContactIconsVisible] = useState(false);
+
     const [transitionDirection, setTransitionDirection] = useState<"up" | "down">("down");
     const scrollDirRef = useRef<"up" | "down">("down");
 
@@ -109,7 +111,7 @@ export default function About() {
                             </div>
                             <div className="flex-1">
                                 <p className="text-lg text-white/90 leading-relaxed">
-                                    I'm a Software Developer at <span className="font-semibold text-white">DevSTAC</span>, working on a wide range of client projects. I'm also a student at <span className="font-semibold text-white">Washington University in St. Louis</span>, pursuing Computer Science and Human-Computer Interaction.
+                                    I'm a Software Developer at <a target="_blank" href="https://techden.wustl.edu/devstac-2/" className="font-semibold text-white">DevSTAC</a>, working on a wide range of client projects. I'm also a student at <a target="_blank" href="https://washu.edu/"className="font-semibold text-white">Washington University in St. Louis</a>, pursuing Computer Science and Human-Computer Interaction.
                                 </p>
                             </div>
                         </div>
@@ -261,10 +263,22 @@ export default function About() {
                         </div>
                     </SpotlightCard>
                 </div>
-
-
             </div>
-            {/* Contact me here -----> add */}
+            <div className="w-3/5 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+            {/* Updates  */}
+            
+            <SpotlightCard className="w-full max-w-3xl mx-auto px-4 py-8">
+
+                <h2 className="text-2xl font-bold mb-4 ">
+                    Recent Updates:
+                </h2>
+                <div className={`mt-7 flex items-center justify-center gap-4 transition-all duration-1500 ease-out`}>
+                    <p className="text-white/70 text-left leading-relaxed">
+                        <span className="text-blue-400 font-bold italic">02-16-2026:</span> I will officially be spending my summer of 2026 abroad in Stockholm, Sweden through the DIS Program! Excited for this amazing opportunity to experience a new culture, while continuing to develop my skills as a software engineer. One of my classes will be focused on Natural Language Processing and LLM's, which is a field I am looking forward to diving deeper into.
+                    </p>
+                </div>
+            </SpotlightCard>
+            {/* Contact me here */}
             <div className="w-3/5 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             <div ref={contactSectionRef} className="w-full mt-16 px-4 pb-24">
                 <SpotlightCard className="relative p-10 text-center overflow-hidden">
