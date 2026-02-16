@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Henry Cordes",
   description: "Henry Cordes -- Software Developer and Student",
+  themeColor: "#0a0a0a",
   icons: {
     icon: [
       { url: "/favicon/favicon.ico" },
@@ -27,17 +28,25 @@ export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-neutral-950">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden min-h-dvh bg-neutral-950 text-white overscroll-y-none`}
       >
-        {children}
+        <div className="min-h-dvh pb-[env(safe-area-inset-bottom)]">
+          {children}
+        </div>
         <Analytics />
       </body>
     </html>
