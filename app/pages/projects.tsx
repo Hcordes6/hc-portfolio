@@ -57,12 +57,12 @@ export default function Projects() {
                 <div className="w-24 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 items-start">
+            <div className="grid lg:grid-cols-3 gap-4 lg:gap-8 items-start">
                 {/* Left Column - Text Content */}
                 {projects.map((project, index) => (
                     <div key={index} className="relative">
-                        <SpotlightCard className="p-5" borderColor={project.isDevSTAC ? "border-neutral-400" : "border-neutral-800"}>
-                            <div className="flex flex-col items-start gap-3 h-55">
+                        <SpotlightCard className="p-4 lg:p-5" borderColor={project.isDevSTAC ? "border-neutral-400" : "border-neutral-800"}>
+                            <div className="flex flex-col items-start gap-3 h-auto lg:h-55">
                                 <div className="flex flex-row w-full justify-between items-start">
                                     <h3 className="text-white font-semibold mb-2">{project.title}</h3>
                                     {project.link ? (
@@ -98,7 +98,7 @@ export default function Projects() {
                                 <p className="text-white/70 text-sm leading-relaxed">
                                     {project.description}
                                 </p>
-                                <div className="flex flex-row items-center gap-2">
+                                <div className="flex flex-wrap items-center gap-2">
                                     {project.techStack.map((tech, index) => (
                                         <span key={index} className="text-white/70 text-xs leading-relaxed bg-white/10 px-2 py-1 rounded-md">
                                             {tech}
