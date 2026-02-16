@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles, ChevronDown, ChevronUp, Linkedin, Github, Mail } from "lucide-react";
+import TextType from "@/components/TextType";
 
 export default function About() {
     const [isTechStackHovered, setIsTechStackHovered] = useState(false);
@@ -75,6 +76,20 @@ export default function About() {
 
     return (
         <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
+            {/* Hero */}
+            <section className="w-full min-h-screen mx-auto flex flex-col items-center justify-center text-center pt-10 sm:pt-16 pb-6 sm:pb-10">
+                <h1 className=" text-4xl sm:text-5xl font-bold bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
+                    Henry Cordes
+                </h1>
+                <TextType
+                    className="mt-3 text-lg sm:text-xl font-medium text-white/80"
+                    text={["Software Developer", "Computer Science Student"]}
+                    typingSpeed={100}
+                    cursorCharacter="_"
+                    cursorClassName="text-white/70"
+                />
+                <div className="mt-6 h-px w-40 bg-linear-to-r from-transparent via-white/30 to-transparent" />
+            </section>
             {/* Header */}
             <div className="text-center mb-12">
                 <h1 className="text-5xl font-bold mb-4 bg-linear-to-r text-white/70">
@@ -297,7 +312,7 @@ export default function About() {
                                 <Github size={42} />
                             </a>
                             <a
-                                href="mailto:hcordesmn@gmail.com"
+                                href="mailto:hello@henrycordes.dev"
                                 className="text-white/80 hover:text-white transition-colors hover:scale-110 transform"
                                 aria-label="Email"
                             >
