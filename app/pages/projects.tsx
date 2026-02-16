@@ -1,7 +1,6 @@
 "use client";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import { ExternalLink } from "lucide-react";
-import { useState } from "react";
 
 export default function Projects() {
     const projects = [
@@ -52,11 +51,12 @@ export default function Projects() {
         <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
             {/* Header */}
             <div className="text-center mb-12">
-                <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r text-white/70">
+                <h1 className="text-5xl font-bold mb-4 bg-linear-to-r text-white/70">
                     Projects
                 </h1>
-                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+                <div className="w-24 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
+
             <div className="grid lg:grid-cols-3 gap-8 items-start">
                 {/* Left Column - Text Content */}
                 {projects.map((project, index) => (
@@ -66,31 +66,51 @@ export default function Projects() {
                                 <div className="flex flex-row w-full justify-between items-start">
                                     <h3 className="text-white font-semibold mb-2">{project.title}</h3>
                                     {project.link ? (
-                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                            <ExternalLink className="w-5 h-5 text-white hover:text-white/70 transition-colors" />
-                                        </a>
+                                        <>
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="lg:hidden shrink-0 rounded-full border border-white/15 bg-white/5 p-2 text-white/90"
+                                                aria-label={`Open ${project.title} link`}
+                                            >
+                                                <ExternalLink className="w-5 h-5" />
+                                            </a>
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="hidden lg:inline">
+                                                <ExternalLink className="w-5 h-5 text-white hover:text-white/70 transition-colors" />
+                                            </a>
+                                        </>
                                     ) : (
-                                        <div className="relative group">
-                                            <ExternalLink className="w-5 h-5 text-white/30 cursor-not-allowed" />
-                                            <div className="absolute top-7 right-0 px-3 py-1.5 bg-neutral-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg z-50">
-                                                No public repository
+                                        <>
+                                            <div className="lg:hidden shrink-0 rounded-full border border-white/10 bg-white/5 p-2 text-white/40" aria-label="No public repository">
+                                                <ExternalLink className="w-5 h-5" />
                                             </div>
-                                        </div>
+                                            <div className="hidden lg:block relative group">
+                                                <ExternalLink className="w-5 h-5 text-white/30 cursor-not-allowed" />
+                                                <div className="absolute top-7 right-0 px-3 py-1.5 bg-neutral-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg z-50">
+                                                    No public repository
+                                                </div>
+                                            </div>
+                                        </>
                                     )}
                                 </div>
 
-                            <p className="text-white/70 text-sm leading-relaxed">
-                                {project.description}
-                            </p>
-                            <div className="flex flex-row items-center gap-2">
-                                {project.techStack.map((tech, index) => (
-                                    <span key={index} className="text-white/70 text-xs leading-relaxed bg-white/10 px-2 py-1 rounded-md">
-                                        {tech}
-                                    </span>
-                                ))}
+                                <p className="text-white/70 text-sm leading-relaxed">
+                                    {project.description}
+                                </p>
+                                <div className="flex flex-row items-center gap-2">
+                                    {project.techStack.map((tech, index) => (
+                                        <span key={index} className="text-white/70 text-xs leading-relaxed bg-white/10 px-2 py-1 rounded-md">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                {!project.link ? (
+                                    <div className="lg:hidden text-xs text-white/50">No public repository</div>
+                                ) : null}
                             </div>
-                        </div>
-                    </SpotlightCard>
+                        </SpotlightCard>
                     </div>
                 ))}
             </div>

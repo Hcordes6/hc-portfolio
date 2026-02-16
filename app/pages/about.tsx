@@ -8,6 +8,7 @@ import TextType from "@/components/TextType";
 
 export default function About() {
     const [isTechStackHovered, setIsTechStackHovered] = useState(false);
+    const [isTechStackOpenMobile, setIsTechStackOpenMobile] = useState(false);
 
     const contactSectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -152,7 +153,25 @@ export default function About() {
                             <div className="flex items-start gap-4">
                                 <div className="flex flex-col justify-between items-center self-stretch">
                                     <Code className="w-6 h-6 text-white/80 shrink-0" />
-                                    {isTechStackHovered ? <ChevronUp className="w-6 h-6 text-white/80 shrink-0" /> : <ChevronDown className="w-6 h-6 text-white/80 shrink-0" />}
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsTechStackOpenMobile((v) => !v)}
+                                        className="lg:hidden"
+                                        aria-label={isTechStackOpenMobile ? "Collapse additional skills" : "Expand additional skills"}
+                                    >
+                                        {isTechStackOpenMobile ? (
+                                            <ChevronUp className="w-6 h-6 text-white/80 shrink-0" />
+                                        ) : (
+                                            <ChevronDown className="w-6 h-6 text-white/80 shrink-0" />
+                                        )}
+                                    </button>
+                                    <div className="hidden lg:block">
+                                        {isTechStackHovered ? (
+                                            <ChevronUp className="w-6 h-6 text-white/80 shrink-0" />
+                                        ) : (
+                                            <ChevronDown className="w-6 h-6 text-white/80 shrink-0" />
+                                        )}
+                                    </div>
                                 </div>
 
                                 <div className="flex-1">
@@ -172,7 +191,7 @@ export default function About() {
 
                             {/* Dropdown Extension */}
                             <div
-                                className={`overflow-hidden transition-all duration-200 ease-in-out ${isTechStackHovered
+                                className={`overflow-hidden transition-all duration-200 ease-in-out ${(isTechStackHovered || isTechStackOpenMobile)
                                     ? 'max-h-96 opacity-100 mt-4'
                                     : 'max-h-0 opacity-0 mt-0'
                                     }`}
@@ -230,13 +249,24 @@ export default function About() {
                 <div className="lg:sticky lg:top-[2%] lg:self-start">
                     <div>
                         <SpotlightCard className="overflow-hidden max-w-sm mx-auto lg:max-w-full">
-                            <Image
-                                src="/images/Brookings_Hall.jpg"
-                                alt="Picture of Brookings Hall, Washington University"
-                                className="w-full h-auto object-cover max-h-96"
-                                width={500}
-                                height={500}
-                            />
+                            <div className="relative aspect-4/3 lg:hidden">
+                                <Image
+                                    src="/images/Brookings_Hall.jpg"
+                                    alt="Picture of Brookings Hall, Washington University"
+                                    fill
+                                    sizes="100vw"
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="hidden lg:block">
+                                <Image
+                                    src="/images/Brookings_Hall.jpg"
+                                    alt="Picture of Brookings Hall, Washington University"
+                                    className="w-full h-auto object-cover max-h-96"
+                                    width={500}
+                                    height={500}
+                                />
+                            </div>
                         </SpotlightCard>
                     </div>
                     <SpotlightCard className="overflow-hidden mt-2">
