@@ -78,8 +78,8 @@ export default function Home() {
     <AuroraBackground>
       {/* Scrollable Content Area */}
       <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
-        <div className="w-full h-full overflow-y-auto">
-          <div className="min-h-full flex items-center justify-center py-20 px-4">
+        <div className="w-full h-full overflow-y-auto no-scrollbar">
+          <div className="min-h-full flex items-center justify-center pb-20 px-4">
             {renderContent()}
           </div>
         </div>

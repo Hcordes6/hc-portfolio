@@ -75,15 +75,15 @@ export default function About() {
 
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
+        <div className="w-full max-w-6xl mx-auto px-4 pb-8 space-y-8">
             {/* Hero */}
-            <section className="w-full min-h-screen mx-auto flex flex-col items-start justify-center text-left">
+            <section className="w-full min-h-screen mx-auto flex flex-col items-start justify-end pb-[20%] sm:pb-[10%] text-left">
                 <h1 className="inline-block pb-1 text-5xl sm:text-6xl lg:text-7xl leading-[1.12] font-bold bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
                     Henry Cordes
                 </h1>
                 <TextType
                     className="mt-4 text-2xl sm:text-3xl font-medium text-white/80"
-                    text={["Software Developer", "Computer Science Student", "Rock Climber"]}
+                    text={["Software Developer", "Computer Science Student", "Rock Climber", "Minnesotan"]}
                     typingSpeed={100}
                     pauseDuration={4000}
                     deletingSpeed={50}
@@ -94,10 +94,7 @@ export default function About() {
             </section>
             {/* Header */}
             <div className="text-center mb-12">
-                <h1 className="text-5xl font-bold mb-4 bg-linear-to-r text-white/70">
-                    About
-                </h1>
-                <div className="w-24 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
+                <div className="w-3/5 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             </div>
 
             {/* Main Content Grid */}
