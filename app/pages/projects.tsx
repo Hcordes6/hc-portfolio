@@ -19,6 +19,13 @@ export default function Projects() {
             isDevSTAC: true
         },
         {
+            title: "News File Sharing Site Prototype",
+            description: "Project for Full-Stack Development class at WashU. Website made from scratch, supporting user registration/login, creating news posts for authenticated users, Upvote/downvote system, + more.",
+            techStack: ["PHP", "MySQL", "HTML/CSS", "AWS", "Linux"],
+            link: "https://github.com/Hcordes6/FileShareSitePrototype",
+            isDevSTAC: false
+        },
+        {
             title: "Madness.AI",
             description: "Uses college basketball statistics API. Users can adjust sliders to generate a unique march madness bracket bassed on their preferred statistics.",
             techStack: ["Node.js", "HTML", "CSS", "JavaScript"],
@@ -37,13 +44,6 @@ export default function Projects() {
             description: "Front-end design final project. Directly translates a book into a website. Focuses on easy navigation and indexing of the book.",
             techStack: ["HTML", "CSS", "JavaScript", "Figma"],
             link: "https://github.com/Hcordes6/Book-to-Website",
-            isDevSTAC: false
-        },
-        {
-            title: "Web File Sharing Site",
-            description: "Currently in development. Users can upload and share files through a web interface. Developed using traditional LAMP stack.",
-            techStack: ["PHP", "CSS", "AWS", "Linux"],
-            link: undefined, // No public repository
             isDevSTAC: false
         },
     ];
