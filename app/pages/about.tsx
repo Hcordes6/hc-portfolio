@@ -7,6 +7,7 @@ import { Briefcase, GraduationCap, MapPin, Code, Heart, Sparkles, ChevronDown, C
 import TextType from "@/components/TextType";
 
 export default function About() {
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
     const [isTechStackHovered, setIsTechStackHovered] = useState(false);
     const [isTechStackOpenMobile, setIsTechStackOpenMobile] = useState(false);
 
@@ -16,6 +17,31 @@ export default function About() {
 
     const [transitionDirection, setTransitionDirection] = useState<"up" | "down">("down");
     const scrollDirRef = useRef<"up" | "down">("down");
+
+    useEffect(() => {
+        if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+
+        const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)");
+
+        const update = () => {
+            const matches = mediaQuery.matches;
+            setIsTouchDevice(matches);
+            if (!matches) {
+                setIsTechStackOpenMobile(false);
+            }
+        };
+
+        update();
+
+        if (typeof mediaQuery.addEventListener === "function") {
+            mediaQuery.addEventListener("change", update);
+            return () => mediaQuery.removeEventListener("change", update);
+        }
+
+        // Safari < 14
+        mediaQuery.addListener(update);
+        return () => mediaQuery.removeListener(update);
+    }, []);
 
     useEffect(() => {
         const sectionEl = contactSectionRef.current;
@@ -74,6 +100,8 @@ export default function About() {
             (scrollParent ?? window).removeEventListener("scroll", onScroll as EventListener);
         };
     }, []);
+
+    const isTechStackOpen = isTouchDevice ? isTechStackOpenMobile : isTechStackHovered;
 
 
     return (
@@ -146,32 +174,29 @@ export default function About() {
 
                     {/* Tech Stack */}
                     <div
-                        onMouseEnter={() => setIsTechStackHovered(true)}
-                        onMouseLeave={() => setIsTechStackHovered(false)}
+                        onMouseEnter={isTouchDevice ? undefined : () => setIsTechStackHovered(true)}
+                        onMouseLeave={isTouchDevice ? undefined : () => setIsTechStackHovered(false)}
+                        onClick={isTouchDevice ? () => setIsTechStackOpenMobile((v) => !v) : undefined}
                     >
-                        <SpotlightCard className="p-6">
+                        <SpotlightCard className={`p-6 ${isTouchDevice ? "cursor-pointer" : ""}`}>
                             <div className="flex items-start gap-4">
                                 <div className="flex flex-col justify-between items-center self-stretch">
                                     <Code className="w-6 h-6 text-white/80 shrink-0" />
-                                    <button
-                                        type="button"
-                                        onClick={() => setIsTechStackOpenMobile((v) => !v)}
-                                        className="lg:hidden"
-                                        aria-label={isTechStackOpenMobile ? "Collapse additional skills" : "Expand additional skills"}
-                                    >
-                                        {isTechStackOpenMobile ? (
-                                            <ChevronUp className="w-6 h-6 text-white/80 shrink-0" />
+                                    {isTouchDevice ? (
+                                        isTechStackOpen ? (
+                                            <ChevronUp className="w-6 h-6 text-white/80 shrink-0 lg:hidden" />
                                         ) : (
-                                            <ChevronDown className="w-6 h-6 text-white/80 shrink-0" />
-                                        )}
-                                    </button>
-                                    <div className="hidden lg:block">
-                                        {isTechStackHovered ? (
-                                            <ChevronUp className="w-6 h-6 text-white/80 shrink-0" />
-                                        ) : (
-                                            <ChevronDown className="w-6 h-6 text-white/80 shrink-0" />
-                                        )}
-                                    </div>
+                                            <ChevronDown className="w-6 h-6 text-white/80 shrink-0 lg:hidden" />
+                                        )
+                                    ) : (
+                                        <div className="hidden lg:block">
+                                            {isTechStackHovered ? (
+                                                <ChevronUp className="w-6 h-6 text-white/80 shrink-0" />
+                                            ) : (
+                                                <ChevronDown className="w-6 h-6 text-white/80 shrink-0" />
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div className="flex-1">
@@ -191,7 +216,7 @@ export default function About() {
 
                             {/* Dropdown Extension */}
                             <div
-                                className={`overflow-hidden transition-all duration-200 ease-in-out ${(isTechStackHovered || isTechStackOpenMobile)
+                                className={`overflow-hidden transition-all duration-200 ease-in-out ${isTechStackOpen
                                     ? 'max-h-96 opacity-100 mt-4'
                                     : 'max-h-0 opacity-0 mt-0'
                                     }`}
