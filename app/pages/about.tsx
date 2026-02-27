@@ -107,7 +107,7 @@ export default function About() {
     return (
         <div className="w-full max-w-6xl mx-auto px-4 pb-8 space-y-8">
             {/* Hero */}
-            <section className="w-full min-h-screen mx-auto flex flex-col items-start justify-end pb-[55%] sm:pb-[10%] text-left">
+            <section className="w-full min-h-screen mx-auto flex flex-col items-center justify-center text-center sm:items-start sm:justify-end sm:pb-[10%] sm:text-left">
                 <h1 className="inline-block pb-1 text-5xl sm:text-6xl lg:text-7xl leading-[1.12] font-bold bg-linear-to-r from-white to-white/70 bg-clip-text text-transparent">
                     Henry Cordes
                 </h1>
