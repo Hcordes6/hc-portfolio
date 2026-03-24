@@ -1,8 +1,11 @@
 "use client";
 import SpotlightCard from "@/components/animations/SpotlightCard";
 import { ExternalLink } from "lucide-react";
+import { title } from "process";
 
 export default function Projects() {
+
+    //Project data - Hardcoded for simplicity
     const projects = [
         {
             title: "BearShare",
@@ -30,6 +33,20 @@ export default function Projects() {
             description: "Uses college basketball statistics API. Users can adjust sliders to generate a unique march madness bracket bassed on their preferred statistics.",
             techStack: ["Node.js", "Typescript", "Next.js", "Tailwind", "API Integration"],
             link: "https://github.com/Hcordes6/MadnessBracketBuilder",
+            isDevSTAC: false
+        },
+        {
+            title: "ChatRoom Website",
+            description: "Project for Full-Stack Development class at WashU. Real-time chatroom supporting room creation, messaging, admin permissions, an AI Agent and more. Focus on Node.js backend and Socket.io functionalities.",
+            techStack: ["Node.js", "OpenAI API", "Socket.IO", "HTML/CSS"],
+            link: undefined, // No public repository
+            isDevSTAC: false
+        },
+        {
+            title: "Calendar Web App",
+            description: "Project for Full-Stack Development class at WashU. Typical calendar functionality supporting user login/registration, event creation, sharing, and more. Focus on JS frontend with AJAX and JSON handling with the backend.",
+            techStack: ["JQuery", "PHP", "MySQL", "HTML/CSS", "AJAX"],
+            link: undefined, // No public repository
             isDevSTAC: false
         },
         {
