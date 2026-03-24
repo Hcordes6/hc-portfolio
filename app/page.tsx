@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { AuroraBackground } from "@/components/ui/shadcn-io/aurora-background";
 import Dock from "@/components/animations/dock";
 import { Linkedin, Github, Mail } from "lucide-react";
@@ -9,17 +9,34 @@ import Projects from "./pages/projects";
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('About');
 
-  const handleAbout = () => {
-    setActiveSection('About');
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const scrollPositionsRef = useRef<Record<string, number>>({});
+
+  //function switches current section, fixes scroll position issue
+  const switchSection = (nextSection: string) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      scrollPositionsRef.current[activeSection] = container.scrollTop;
+    }
+    setActiveSection(nextSection);
   };
 
-  const handleProjects = () => {
-    setActiveSection('Projects');
-  };
+  //apply scroll position on section switch
+  useLayoutEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const nextScrollTop = scrollPositionsRef.current[activeSection] ?? 0;
+    const raf = window.requestAnimationFrame(() => {
+      container.scrollTop = nextScrollTop;
+    });
+
+    return () => window.cancelAnimationFrame(raf);
+  }, [activeSection]);
 
   const items = [
-    { label: 'About', onClick: handleAbout },
-    { label: 'Projects', onClick: handleProjects },
+    { label: 'About', onClick: () => switchSection('About') },
+    { label: 'Projects', onClick: () => switchSection('Projects') },
   ];
 
   const renderContent = () => {
@@ -65,7 +82,7 @@ export default function Home() {
     <AuroraBackground>
       {/* Scrollable Content Area */}
       <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
-        <div className="w-full h-full overflow-y-auto no-scrollbar">
+        <div ref={scrollContainerRef} className="w-full h-full overflow-y-auto no-scrollbar">
           <div className="min-h-full flex items-center justify-center pb-20 px-4">
             {renderContent()}
           </div>
