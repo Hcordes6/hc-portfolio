@@ -31,7 +31,7 @@ export default function Projects() {
         {
             title: "March Madness Bracket Builder",
             description: "Uses college basketball statistics API. Users can adjust sliders to generate a unique march madness bracket bassed on their preferred statistics.",
-            techStack: ["Node.js", "Typescript", "Next.js", "Tailwind", "API Integration"],
+            techStack: ["Node.js", "Typescript", "Next.js", "Tailwind", "API Design"],
             link: "https://github.com/Hcordes6/MadnessBracketBuilder",
             isDevSTAC: false
         },

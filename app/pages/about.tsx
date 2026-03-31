@@ -321,8 +321,8 @@ export default function About() {
             <div className="w-3/5 h-1 bg-linear-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
             {/* Updates  */}
             <div className="w-full px-4">
-                <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2 lg:items-stretch">
-                    <SpotlightCard className="h-full w-full p-6">
+                <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2 lg:items-stretch justify-center">
+                    <SpotlightCard className="h-full w-full p-6 hidden">
                         <div className="flex h-full flex-col">
                             <h2 className="text-2xl font-bold">Recent Updates:</h2>
                             <div className="mt-6 flex-1">
@@ -333,7 +333,7 @@ export default function About() {
                         </div>
                     </SpotlightCard>
 
-                    <SpotlightCard className="h-full w-full p-6" borderColor="border-white/20">
+                    <SpotlightCard className="h-full w-full p-6 lg:col-span-2 justify-self-center">
                         <div className="flex h-full flex-col">
                             <div className="flex items-start justify-between gap-4">
                                 <h2 className="text-2xl font-bold">Blog</h2>
@@ -342,7 +342,7 @@ export default function About() {
                                 </div>
                             </div>
 
-                            <p className="mt-6 text-white/70 leading-relaxed">
+                            <p className="self-center text-2xl my-6 text-white/70 leading-relaxed border-b border-white/20">
                                 Coming soon.
                             </p>
                         </div>
